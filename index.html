@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101622">
+  <title>Mythos — La guerre des immortels</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Marcellus&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Mythos, accueil"><span class="brand-mark">✦</span><span>MYTHOS<small>LA GUERRE DES IMMORTELS</small></span></a>
+      <div class="top-actions"><span class="edition">ÉDITION DIVINE <i></i></span><button class="icon-button" id="rules-open" aria-label="Règles">?</button><button class="new-game" id="new-game">↻ <span>Nouvelle partie</span></button></div>
+    </header>
+    <section class="intro"><div class="eyebrow"><span></span> DEUX ROYAUMES · UN DESTIN</div><h1>Le sort des dieux<br><em>se joue ici.</em></h1><p>Un jeu d’échecs mythologique où chaque héros peut tomber.</p></section>
+    <section class="play-layout">
+      <div class="board-column">
+        <div class="board-heading"><div class="turn-mark" id="turn-mark">☼</div><div><span class="eyebrow" id="turn-label">À VOUS DE JOUER</span><h2 id="turn-name">Les Olympiens</h2></div><div class="round-pill">TOUR <b id="round-number">01</b></div></div>
+        <div class="board-frame"><div class="rank-labels" id="rank-labels"></div><div class="board" id="board" role="grid" aria-label="Échiquier mythologique"></div><div class="file-labels" id="file-labels"></div></div>
+        <div class="board-caption"><span><i class="legend-dot move-dot"></i> Déplacement</span><span><i class="legend-dot attack-dot"></i> Duel</span><span class="capture-note">Une attaque inflige 2 dégâts. Achevez le roi adverse !</span></div>
+      </div>
+      <aside class="side-panel">
+        <div class="faction-card olympian" id="olympian-card"><div class="faction-top"><span class="faction-emblem">☼</span><span class="faction-status" id="olympian-status">À L’AUBE</span></div><h3>Les Olympiens</h3><p>Le panthéon du mont Olympe</p><div class="faction-stats"><span><b id="olympian-count">16</b> combattants</span><span class="health-total"><i></i><b id="olympian-health">—</b> PV</span></div></div>
+        <div class="faction-card asgardian" id="asgardian-card"><div class="faction-top"><span class="faction-emblem">ᛟ</span><span class="faction-status" id="asgardian-status">DANS L’OMBRE</span></div><h3>Les Asgardiens</h3><p>Les dieux des neuf royaumes</p><div class="faction-stats"><span><b id="asgardian-count">16</b> combattants</span><span class="health-total"><i></i><b id="asgardian-health">—</b> PV</span></div></div>
+        <div class="selected-card" id="selected-card"><div class="panel-kicker">HÉROS SÉLECTIONNÉ</div><div class="empty-selection" id="empty-selection"><span>✧</span><p>Sélectionnez une pièce<br>pour découvrir son pouvoir.</p></div><div id="piece-details" class="piece-details hidden"></div></div>
+        <div class="ability-box"><div class="ability-head"><div><div class="panel-kicker">POUVOIR DIVIN</div><h3>Capacité spéciale</h3></div><span class="ability-spark">✦</span></div><p class="ability-copy" id="ability-copy">Chaque héros peut invoquer son pouvoir une fois par partie.</p><button class="ability-button" id="ability-button" disabled><span>✧</span><span id="ability-label">Choisissez un héros</span><b>→</b></button></div>
+        <div class="battle-log"><div class="log-heading"><div class="panel-kicker">CHRONIQUE DU COMBAT</div><span id="log-count">01</span></div><ol id="move-log"><li class="log-empty">Les dieux attendent votre premier coup.</li></ol></div>
+      </aside>
+    </section>
+    <footer><span>MYTHOS <i>·</i> Les légendes prennent vie</span><span>POUR 2 JOUEURS <i>·</i> SUR LE MÊME ÉCHIQUIER</span></footer>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <dialog id="rules-dialog"><button class="dialog-close" id="rules-close" aria-label="Fermer">×</button><div class="eyebrow">GUIDE DU COMBATTANT</div><h2>Les règles du jeu</h2><p>Déplacez vos pièces comme aux échecs sur un plateau de 8 × 8. Les Olympiens commencent. À chaque tour, déplacez une pièce ou utilisez son pouvoir divin.</p><ul><li><b>Le duel :</b> une attaque inflige 2 dégâts. Si la cible survit, les deux combattants restent en place et l’attaquant subit 1 dégât de riposte. Si elle tombe, l’attaquant prend sa case.</li><li><b>Les pouvoirs :</b> chaque pièce peut invoquer son pouvoir une seule fois par partie. Ils n’utilisent pas le déplacement classique.</li><li><b>La victoire :</b> réduisez les PV du roi ennemi à zéro. Ici, nul besoin de mettre le roi en échec avant de le vaincre.</li><li><b>Ascension :</b> un demi-dieu qui atteint l’autre bout du plateau devient une reine.</li></ul><p class="rules-note">La victoire récompense la stratégie, mais aussi le courage de prendre des risques.</p></dialog>
+  <dialog id="new-dialog"><div class="eyebrow">UNE NOUVELLE LÉGENDE ?</div><h2>Recommencer la bataille</h2><p>La partie actuelle sera effacée et les deux armées retrouveront leur position initiale.</p><div class="dialog-actions"><button id="cancel-new" class="secondary-button">Continuer la partie</button><button id="confirm-new" class="new-game">Recommencer ↻</button></div></dialog>
+  <script src="game.js"></script>
+</body>
+</html>
